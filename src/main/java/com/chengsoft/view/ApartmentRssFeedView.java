@@ -2,26 +2,29 @@ package com.chengsoft.view;
 
 import com.chengsoft.controller.ApartmentController;
 import com.chengsoft.model.Apartment;
+import com.chengsoft.model.Community;
 import com.chengsoft.service.ApartmentSearchService;
-import com.rometools.rome.feed.rss.Channel;
-import com.rometools.rome.feed.rss.Content;
-import com.rometools.rome.feed.rss.Description;
-import com.rometools.rome.feed.rss.Item;
+import com.rometools.rome.feed.rss.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.feed.AbstractRssFeedView;
 import org.springframework.web.util.UriComponentsBuilder;
+import rx.Observable;
+import rx.util.async.Async;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import static java.util.Comparator.comparing;
 
 /**
  * Created by tcheng on 4/24/16.
@@ -45,9 +48,8 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
         channel.setLink(baseUrl + ApartmentController.APARTMENT_FEED);
         channel.setTitle(CHANNEL_TITLE);
         channel.setDescription(CHANNEL_DESCRIPTION);
-
-        // TODO most recent publish date
-//        documentService.getOneMostRecent().ifPresent(d -> channel.setPubDate(d.getDatePublished()));
+        apartmentSearchService.getOneMostRecent().ifPresent(a ->
+                channel.setPubDate(Date.from(a.getDateFound().atStartOfDay(ZoneId.of("America/New_York")).toInstant())));
         return channel;
     }
 
@@ -55,18 +57,35 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
     protected List<Item> buildFeedItems(Map<String, Object> model,
                                         HttpServletRequest httpServletRequest,
                                         HttpServletResponse httpServletResponse) throws Exception {
-        return apartmentSearchService.lookForNewApartments((LocalDate) model.get(MOVE_IN_DATE)).stream()
+        LocalDate moveInDate = (LocalDate) model.get(MOVE_IN_DATE);
+
+        return Observable.from(Community.values())
+                .flatMap(c -> Async.start(() -> apartmentSearchService.lookForNewApartments(moveInDate, c)))
+                .toList()
+                .toBlocking()
+                .first()
+                .stream()
+                .flatMap(Collection::stream)
+                .sorted(comparing(Apartment::getCommunity)
+                        .thenComparing(a -> a.getPricing().getAvailableDate()))
                 .map(this::createItem)
                 .collect(Collectors.toList());
     }
 
     private Item createItem(Apartment apartment) {
         Item item = new Item();
-        item.setTitle(String.format("%s - $%d - #%d",
+        item.setTitle(String.format("%s - %s - $%d - #%d",
+                apartment.getCommunity(),
                 apartment.getPricing().getAvailableDate().format(DateTimeFormatter.ISO_LOCAL_DATE),
                 apartment.getPricing().getEffectiveRent(),
                 apartment.getApartmentNumber()));
         item.setDescription(createDescription(apartment));
+
+        // Create guid from apartment code
+        Guid guid = new Guid();
+        guid.setValue(apartment.getApartmentCode());
+        item.setGuid(guid);
+
         item.setPubDate(Date.from(apartment.getDateFound().atStartOfDay(ZoneId.of("America/New_York")).toInstant()));
         return item;
     }

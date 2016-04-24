@@ -2,11 +2,11 @@ package com.chengsoft;
 
 import com.chengsoft.model.Apartment;
 import com.chengsoft.model.FloorPlan;
-import com.chengsoft.service.AvalonSomervilleService;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.chengsoft.service.AvalonService;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Lists;
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.Option;
@@ -15,7 +15,6 @@ import com.jayway.jsonpath.spi.json.JacksonJsonProvider;
 import com.jayway.jsonpath.spi.json.JsonProvider;
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
 import com.jayway.jsonpath.spi.mapper.MappingProvider;
-import lombok.Data;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -27,11 +26,12 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by tcheng on 4/23/16.
@@ -41,11 +41,22 @@ public class RetrofitTest {
 
     final static Logger logger = LoggerFactory.getLogger(RetrofitTest.class);
 
-    @Data
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class Repo {
-        private Long id;
-        private String name;
+    @Test
+    public void  testDates() {
+        ArrayList<Apartment> apartments = Lists.newArrayList(Apartment.builder()
+                        .apartmentCode("a")
+                        .dateFound(LocalDate.of(2016, 1, 1))
+                        .build(),
+                Apartment.builder()
+                        .apartmentCode("b")
+                        .dateFound(LocalDate.of(2018, 1, 1))
+                        .build(),
+                Apartment.builder()
+                        .apartmentCode("a")
+                        .dateFound(LocalDate.of(2012, 1, 1))
+                        .build());
+        System.out.println(apartments.stream()
+        .max(Comparator.comparing(Apartment::getDateFound)));
     }
 
     @Test
@@ -56,7 +67,7 @@ public class RetrofitTest {
                 .baseUrl("https://api.avalonbay.com/json/reply/")
                 .build();
 
-        AvalonSomervilleService service = retrofit.create(AvalonSomervilleService.class);
+        AvalonService service = retrofit.create(AvalonService.class);
         Call<JsonNode> repos = service.search("MA039",
                 "2016-06-01T04:00:00.000Z",
                 1900,

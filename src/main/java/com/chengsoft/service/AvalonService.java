@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 /**
  * Created by tcheng on 4/23/16.
  */
-public interface AvalonSomervilleService {
+public interface AvalonService {
 
     @GET("ApartmentSearch")
     Call<JsonNode> search(@Query("communityCode") String communityCode,
