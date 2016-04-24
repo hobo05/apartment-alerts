@@ -1,5 +1,6 @@
 package com.chengsoft.view;
 
+import com.chengsoft.controller.ApartmentController;
 import com.chengsoft.model.Apartment;
 import com.chengsoft.service.ApartmentSearchService;
 import com.rometools.rome.feed.rss.Channel;
@@ -41,7 +42,7 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
     @Override
     protected Channel newFeed() {
         Channel channel = new Channel("rss_2.0");
-        channel.setLink(baseUrl + "/feed/");
+        channel.setLink(baseUrl + ApartmentController.APARTMENT_FEED);
         channel.setTitle(CHANNEL_TITLE);
         channel.setDescription(CHANNEL_DESCRIPTION);
 
@@ -61,7 +62,6 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
 
     private Item createItem(Apartment apartment) {
         Item item = new Item();
-        item.setLink(baseUrl + apartment.getApartmentNumber());
         item.setTitle(String.format("%s - $%d - #%d",
                 apartment.getPricing().getAvailableDate().format(DateTimeFormatter.ISO_LOCAL_DATE),
                 apartment.getPricing().getEffectiveRent(),

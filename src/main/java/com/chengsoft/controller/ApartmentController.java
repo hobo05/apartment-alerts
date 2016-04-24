@@ -15,10 +15,12 @@ import java.time.LocalDate;
 @Controller
 public class ApartmentController {
 
+    public static final String APARTMENT_FEED = "/apartment-feed/";
+
     @Autowired
     ApartmentRssFeedView apartmentRssFeedView;
 
-    @RequestMapping(value = "/apartment-feed/", produces = "application/*")
+    @RequestMapping(value = APARTMENT_FEED, produces = "application/*")
     public ApartmentRssFeedView getFeed(
             @RequestParam("moveInDate") String moveInDate,
             Model model) {
