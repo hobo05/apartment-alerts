@@ -1,12 +1,17 @@
 package com.chengsoft.config;
 
+import com.chengsoft.view.ApartmentRssFeedView;
 import com.jayway.jsonpath.Option;
 import com.jayway.jsonpath.spi.json.JacksonJsonProvider;
 import com.jayway.jsonpath.spi.json.JsonProvider;
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
 import com.jayway.jsonpath.spi.mapper.MappingProvider;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.web.context.WebApplicationContext;
 
 import javax.annotation.PostConstruct;
 import java.util.EnumSet;
@@ -41,6 +46,12 @@ public class AppConfig {
                 return EnumSet.noneOf(Option.class);
             }
         });
+    }
+
+    @Bean
+    @Scope(scopeName = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
+    public ApartmentRssFeedView apartmentRssFeedView() {
+        return new ApartmentRssFeedView();
     }
 
 }

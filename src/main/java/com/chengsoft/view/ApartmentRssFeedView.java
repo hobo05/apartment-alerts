@@ -7,7 +7,6 @@ import com.chengsoft.service.ApartmentSearchService;
 import com.rometools.rome.feed.rss.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.feed.AbstractRssFeedView;
 import org.springframework.web.util.UriComponentsBuilder;
 import rx.Observable;
@@ -29,7 +28,6 @@ import static java.util.Comparator.comparing;
 /**
  * Created by tcheng on 4/24/16.
  */
-@Component
 public class ApartmentRssFeedView extends AbstractRssFeedView {
 
     private static final String CHANNEL_TITLE = "Avalon Somerville One Bedroom Apartments";
@@ -39,13 +37,22 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
 
     @Autowired private ApartmentSearchService apartmentSearchService;
 
+    @Autowired HttpServletRequest httpServletRequest;
+
     @Value("${application.base-url}")
     private String baseUrl;
 
     @Override
     protected Channel newFeed() {
         Channel channel = new Channel("rss_2.0");
-        channel.setLink(baseUrl + ApartmentController.APARTMENT_FEED);
+
+        String moveInDate = httpServletRequest.getParameter(MOVE_IN_DATE);
+        String channelLink = UriComponentsBuilder.fromHttpUrl(baseUrl)
+                .path(ApartmentController.APARTMENT_FEED)
+                .queryParam(MOVE_IN_DATE, moveInDate)
+                .build().toUriString();
+
+        channel.setLink(channelLink);
         channel.setTitle(CHANNEL_TITLE);
         channel.setDescription(CHANNEL_DESCRIPTION);
         apartmentSearchService.getOneMostRecent().ifPresent(a ->

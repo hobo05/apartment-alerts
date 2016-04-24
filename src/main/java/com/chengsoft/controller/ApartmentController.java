@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 
+import static com.chengsoft.view.ApartmentRssFeedView.*;
+
 /**
  * Created by tcheng on 4/24/16.
  */
@@ -22,9 +24,9 @@ public class ApartmentController {
 
     @RequestMapping(value = APARTMENT_FEED, produces = "application/*")
     public ApartmentRssFeedView getFeed(
-            @RequestParam("moveInDate") String moveInDate,
+            @RequestParam(MOVE_IN_DATE) String moveInDate,
             Model model) {
-        model.addAttribute(ApartmentRssFeedView.MOVE_IN_DATE, LocalDate.parse(moveInDate));
+        model.addAttribute(MOVE_IN_DATE, LocalDate.parse(moveInDate));
         return apartmentRssFeedView;
     }
 
