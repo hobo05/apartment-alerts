@@ -86,6 +86,7 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
         guid.setValue(apartment.getApartmentCode());
         item.setGuid(guid);
 
+        item.setLink(createLink(apartment));
         item.setPubDate(Date.from(apartment.getDateFound().atStartOfDay(ZoneId.of("America/New_York")).toInstant()));
         return item;
     }
@@ -94,13 +95,17 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
         Description description = new Description();
         description.setType(Content.HTML);
 
-        String link = UriComponentsBuilder.fromHttpUrl(APARTMENT_DETAIL_BASE_URL)
-                .buildAndExpand(apartment.getApartmentCode())
-                .toUriString();
+        String link = createLink(apartment);
 
         description.setValue(String.format("<a href='%s'>View Details</a>",
                 link));
         return description;
+    }
+
+    private String createLink(Apartment apartment) {
+        return UriComponentsBuilder.fromHttpUrl(APARTMENT_DETAIL_BASE_URL)
+                    .buildAndExpand(apartment.getApartmentCode())
+                    .toUriString();
     }
 
 }
