@@ -30,14 +30,16 @@ import static java.util.Comparator.comparing;
  */
 public class ApartmentRssFeedView extends AbstractRssFeedView {
 
-    private static final String CHANNEL_TITLE = "Avalon Somerville One Bedroom Apartments";
+    private static final String CHANNEL_TITLE = "Avalon One Bedroom Apartments";
     private static final String CHANNEL_DESCRIPTION = "Feed of One Bedroom Apartments";
     private static final String APARTMENT_DETAIL_BASE_URL = "http://www.avaloncommunities.com/massachusetts/somerville-apartments/ava-somerville/apartment/{apartmentCode}";
     public static final String MOVE_IN_DATE = "moveInDate";
 
-    @Autowired private ApartmentSearchService apartmentSearchService;
+    @Autowired
+    private ApartmentSearchService apartmentSearchService;
 
-    @Autowired HttpServletRequest httpServletRequest;
+    @Autowired
+    HttpServletRequest httpServletRequest;
 
     @Value("${application.base-url}")
     private String baseUrl;
@@ -53,8 +55,8 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
                 .build().toUriString();
 
         channel.setLink(channelLink);
-        channel.setTitle(CHANNEL_TITLE);
-        channel.setDescription(CHANNEL_DESCRIPTION);
+        channel.setTitle(CHANNEL_TITLE + " " + moveInDate);
+        channel.setDescription(CHANNEL_DESCRIPTION + " with move in date ~" + moveInDate);
         apartmentSearchService.getOneMostRecent().ifPresent(a ->
                 channel.setPubDate(Date.from(a.getDateFound().atStartOfDay(ZoneId.of("America/New_York")).toInstant())));
         return channel;
@@ -111,8 +113,8 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
 
     private String createLink(Apartment apartment) {
         return UriComponentsBuilder.fromHttpUrl(APARTMENT_DETAIL_BASE_URL)
-                    .buildAndExpand(apartment.getApartmentCode())
-                    .toUriString();
+                .buildAndExpand(apartment.getApartmentCode())
+                .toUriString();
     }
 
 }
