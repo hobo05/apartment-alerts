@@ -71,12 +71,14 @@ public class ApartmentSearchService {
                 .read(ONE_BEDROOM_PATH + ALL,
                         new TypeRef<List<FloorPlan>>() {});
 
+        String formattedDate = DateTimeFormatter.ISO_DATE.format(moveInDate);
+
         if (oneBedroomFloorPlans.isEmpty()) {
-            logger.error("No floor plans available");
+            logger.error("No floor plans available for {}", formattedDate);
             return ImmutableSet.of();
         }
 
-        logger.info("{} One bedroom floor plans available", oneBedroomFloorPlans.size());
+        logger.info("{} One bedroom floor plans availablefor {}", oneBedroomFloorPlans.size(), formattedDate);
 
         List<Apartment> apartments = JsonPath
                 .parse(json)
