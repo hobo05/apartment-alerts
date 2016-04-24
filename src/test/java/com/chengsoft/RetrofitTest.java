@@ -16,6 +16,7 @@ import com.jayway.jsonpath.spi.json.JsonProvider;
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
 import com.jayway.jsonpath.spi.mapper.MappingProvider;
 import lombok.Data;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,6 +36,7 @@ import java.util.Set;
 /**
  * Created by tcheng on 4/23/16.
  */
+@Ignore
 public class RetrofitTest {
 
     final static Logger logger = LoggerFactory.getLogger(RetrofitTest.class);
@@ -143,6 +145,7 @@ public class RetrofitTest {
         ZonedDateTime zdt = ZonedDateTime.of(LocalDateTime.of(2016, 5, 28, 0, 0), ZoneId.of("America/New_York"));
         ZonedDateTime utc = zdt.withZoneSameInstant(ZoneId.of("UTC"));
         System.out.println(formatter.format(utc));
+        System.out.println(DateTimeFormatter.ISO_LOCAL_DATE.format(utc));
 
     }
 }

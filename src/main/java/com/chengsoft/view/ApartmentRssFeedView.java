@@ -14,10 +14,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +31,7 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
     private static final String CHANNEL_TITLE = "Avalon Somerville One Bedroom Apartments";
     private static final String CHANNEL_DESCRIPTION = "Feed of One Bedroom Apartments";
     private static final String APARTMENT_DETAIL_BASE_URL = "http://www.avaloncommunities.com/massachusetts/somerville-apartments/ava-somerville/apartment/{apartmentCode}";
+    public static final String MOVE_IN_DATE = "moveInDate";
 
     @Autowired private ApartmentSearchService apartmentSearchService;
 
@@ -54,7 +54,7 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
     protected List<Item> buildFeedItems(Map<String, Object> model,
                                         HttpServletRequest httpServletRequest,
                                         HttpServletResponse httpServletResponse) throws Exception {
-        return apartmentSearchService.lookForNewApartments(LocalDate.of(2016, 6, 1)).stream()
+        return apartmentSearchService.lookForNewApartments((LocalDate) model.get(MOVE_IN_DATE)).stream()
                 .map(this::createItem)
                 .collect(Collectors.toList());
     }
@@ -62,7 +62,10 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
     private Item createItem(Apartment apartment) {
         Item item = new Item();
         item.setLink(baseUrl + apartment.getApartmentNumber());
-        item.setTitle(String.format("$%d - #%d", apartment.getPricing().getEffectiveRent(), apartment.getApartmentNumber()));
+        item.setTitle(String.format("%s - $%d - #%d",
+                apartment.getPricing().getAvailableDate().format(DateTimeFormatter.ISO_LOCAL_DATE),
+                apartment.getPricing().getEffectiveRent(),
+                apartment.getApartmentNumber()));
         item.setDescription(createDescription(apartment));
         item.setPubDate(Date.from(apartment.getDateFound().atStartOfDay(ZoneId.of("America/New_York")).toInstant()));
         return item;
@@ -79,15 +82,6 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
         description.setValue(String.format("<a href='%s'>View Details</a>",
                 link));
         return description;
-    }
-
-    private String encodeUrl(String link) {
-        try {
-            return URLEncoder.encode(link, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            logger.error("Error while encoding link: ", e);
-        }
-        return null;
     }
 
 }
