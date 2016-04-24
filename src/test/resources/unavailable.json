@@ -1,0 +1,346 @@
+{
+  "results": {
+    "availableFloorPlanTypes": [],
+    "unavailableFloorPlans": [
+      {
+        "floorPlanId": "6890",
+        "floorPlanName": "S1-terrace",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-S1-403SF-Standard.jpg",
+        "floorPlanType": "0BD",
+        "floorPlanSizeRange": {
+          "minSize": 403,
+          "maxSize": 403,
+          "floorPlanName": "S1-terrace"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "2734",
+        "floorPlanName": "S2-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-S2-445SF-Standard.jpg",
+        "floorPlanType": "0BD",
+        "floorPlanSizeRange": {
+          "minSize": 445,
+          "maxSize": 445,
+          "floorPlanName": "S2-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "2727",
+        "floorPlanName": "S3-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-S3-468SF-Standard.jpg",
+        "floorPlanType": "0BD",
+        "floorPlanSizeRange": {
+          "minSize": 468,
+          "maxSize": 468,
+          "floorPlanName": "S3-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "9258",
+        "floorPlanName": "S3-upgrade",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-S3-468SF-Upgrade.jpg",
+        "floorPlanType": "0BD",
+        "floorPlanSizeRange": {
+          "minSize": 468,
+          "maxSize": 468,
+          "floorPlanName": "S3-upgrade"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "2737",
+        "floorPlanName": "S4-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-S4-478SF-Apt408-Standard.jpg",
+        "floorPlanType": "0BD",
+        "floorPlanSizeRange": {
+          "minSize": 478,
+          "maxSize": 478,
+          "floorPlanName": "S4-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "9259",
+        "floorPlanName": "S4-upgrade",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-S4-478SF-Apt408-Upgraded.jpg",
+        "floorPlanType": "0BD",
+        "floorPlanSizeRange": {
+          "minSize": 478,
+          "maxSize": 478,
+          "floorPlanName": "S4-upgrade"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "2726",
+        "floorPlanName": "A1-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A1-533SF-Standard.jpg",
+        "floorPlanType": "1BD",
+        "floorPlanSizeRange": {
+          "minSize": 533,
+          "maxSize": 533,
+          "floorPlanName": "A1-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "9260",
+        "floorPlanName": "A1-upgrade",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A1-533SF-Upgraded.jpg",
+        "floorPlanType": "1BD",
+        "floorPlanSizeRange": {
+          "minSize": 533,
+          "maxSize": 533,
+          "floorPlanName": "A1-upgrade"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "2721",
+        "floorPlanName": "A2-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A2-646SF-Standard.jpg",
+        "floorPlanType": "1BD",
+        "floorPlanSizeRange": {
+          "minSize": 646,
+          "maxSize": 646,
+          "floorPlanName": "A2-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "2729",
+        "floorPlanName": "A3-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A3-672SF-Standard.jpg",
+        "floorPlanType": "1BD",
+        "floorPlanSizeRange": {
+          "minSize": 672,
+          "maxSize": 672,
+          "floorPlanName": "A3-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "5770",
+        "floorPlanName": "A3-standard-terrace",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A3-672SF-terr-Standard.jpg",
+        "floorPlanType": "1BD",
+        "floorPlanSizeRange": {
+          "minSize": 672,
+          "maxSize": 672,
+          "floorPlanName": "A3-standard-terrace"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "9290",
+        "floorPlanName": "A3-upgraded-terrace",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A3-672SF-terr-Upgrade.jpg",
+        "floorPlanType": "1BD",
+        "floorPlanSizeRange": {
+          "minSize": 672,
+          "maxSize": 672,
+          "floorPlanName": "A3-upgraded-terrace"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "2730",
+        "floorPlanName": "A4-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A4-788SF-Standard.jpg",
+        "floorPlanType": "1BD",
+        "floorPlanSizeRange": {
+          "minSize": 778,
+          "maxSize": 778,
+          "floorPlanName": "A4-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "2723",
+        "floorPlanName": "A5-upgrade",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A5-845SF-Upgraded.jpg",
+        "floorPlanType": "1BD",
+        "floorPlanSizeRange": {
+          "minSize": 845,
+          "maxSize": 845,
+          "floorPlanName": "A5-upgrade"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "2725",
+        "floorPlanName": "B1-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B1-779SF-Standard.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 779,
+          "maxSize": 779,
+          "floorPlanName": "B1-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "9261",
+        "floorPlanName": "B1-upgrade",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B1-779SF-Upgraded.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 779,
+          "maxSize": 779,
+          "floorPlanName": "B1-upgrade"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "2722",
+        "floorPlanName": "B3-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B3-982SF-Standard.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 982,
+          "maxSize": 982,
+          "floorPlanName": "B3-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "5802",
+        "floorPlanName": "B3-standard-terrace",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B3-982SF-Terr-Standard.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 982,
+          "maxSize": 982,
+          "floorPlanName": "B3-standard-terrace"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "9262",
+        "floorPlanName": "B3-upgrade-terrace",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B3-982SF-Terr-Upgraded.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 982,
+          "maxSize": 982,
+          "floorPlanName": "B3-upgrade-terrace"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "2724",
+        "floorPlanName": "B4-369-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B4-985SF-Apts369-451-Standard(1).jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 982,
+          "maxSize": 982,
+          "floorPlanName": "B4-369-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "9263",
+        "floorPlanName": "B4-451-upgraded",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B4-985SF-Apts369-451-Upgrade.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 982,
+          "maxSize": 982,
+          "floorPlanName": "B4-451-upgraded"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "9323",
+        "floorPlanName": "B4-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B4-985SF-Standard.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 982,
+          "maxSize": 982,
+          "floorPlanName": "B4-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "9322",
+        "floorPlanName": "B4-upgrade",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B4-985SF-Upgrade.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 982,
+          "maxSize": 982,
+          "floorPlanName": "B4-upgrade"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "2732",
+        "floorPlanName": "B5-upgraded",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B5-1246SF-Upgraded.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 1246,
+          "maxSize": 1246,
+          "floorPlanName": "B5-upgraded"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "5803",
+        "floorPlanName": "B5-upgraded-terrace",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B5-1246SF-Terr-Upgrade.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 1246,
+          "maxSize": 1246,
+          "floorPlanName": "B5-upgraded-terrace"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "2728",
+        "floorPlanName": "B6-upgraded",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B6-1357SF-Upgrade.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 1357,
+          "maxSize": 1357,
+          "floorPlanName": "B6-upgraded"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      }
+    ]
+  },
+  "responseStatus": null
+}

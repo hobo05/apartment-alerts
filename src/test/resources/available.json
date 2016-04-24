@@ -1,0 +1,743 @@
+{
+  "results": {
+    "availableFloorPlanTypes": [
+      {
+        "availableFloorPlans": [
+          {
+            "finishPackages": [
+              {
+                "apartments": [
+                  {
+                    "apartmentCode": "MA039-MA039-001-567",
+                    "communityCode": "MA039",
+                    "subCommunityCode": null,
+                    "buildingNumber": "001",
+                    "apartmentNumber": "567",
+                    "apartmentAddress": "445 Artisan Way #567",
+                    "floorPlan": null,
+                    "pricing": {
+                      "amenitizedRent": 2070,
+                      "effectiveRent": 2070,
+                      "availableDate": "\/Date(1465862400000)\/",
+                      "showAsAvailable": true,
+                      "unavailableMessage": null,
+                      "leaseTerms": null
+                    },
+                    "hasPromotion": false,
+                    "promotionList": [],
+                    "amenityList": null,
+                    "finishPackage": null,
+                    "apartmentSize": 445,
+                    "onlineApplicationUrl": "",
+                    "unitKey": "MA039-MA039-001-567",
+                    "floor": 5
+                  }
+                ],
+                "finishPackageId": "",
+                "finishPackageName": "",
+                "finishPackageDescription": "",
+                "finishPackageImage": ""
+              }
+            ],
+            "floorPlanId": "2734",
+            "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-S2-445SF-Standard.jpg",
+            "promotionList": null,
+            "floorPlanSizeRange": {
+              "minSize": 445,
+              "maxSize": 445,
+              "floorPlanName": "S2-standard"
+            },
+            "floorPlanFeatures": [],
+            "id": "",
+            "communityCode": "MA039",
+            "floorPlanType": "Studio",
+            "floorPlanBathType": "1 bath",
+            "floorPlanName": "S2-standard",
+            "image": "",
+            "estimatedSize": 445,
+            "features": [],
+            "apartments": null,
+            "internalNotes": "",
+            "modifiedBy": "",
+            "isDeleted": false,
+            "sizeRange": null
+          },
+          {
+            "finishPackages": [
+              {
+                "apartments": [
+                  {
+                    "apartmentCode": "MA039-MA039-001-278",
+                    "communityCode": "MA039",
+                    "subCommunityCode": null,
+                    "buildingNumber": "001",
+                    "apartmentNumber": "278",
+                    "apartmentAddress": "445 Artisan Way #278",
+                    "floorPlan": null,
+                    "pricing": {
+                      "amenitizedRent": 2120,
+                      "effectiveRent": 2120,
+                      "availableDate": "\/Date(1462838400000)\/",
+                      "showAsAvailable": true,
+                      "unavailableMessage": null,
+                      "leaseTerms": null
+                    },
+                    "hasPromotion": false,
+                    "promotionList": [],
+                    "amenityList": null,
+                    "finishPackage": null,
+                    "apartmentSize": 478,
+                    "onlineApplicationUrl": "",
+                    "unitKey": "MA039-MA039-001-278",
+                    "floor": 2
+                  }
+                ],
+                "finishPackageId": "",
+                "finishPackageName": "",
+                "finishPackageDescription": "",
+                "finishPackageImage": ""
+              }
+            ],
+            "floorPlanId": "2737",
+            "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-S4-478SF-Apt408-Standard.jpg",
+            "promotionList": null,
+            "floorPlanSizeRange": {
+              "minSize": 478,
+              "maxSize": 478,
+              "floorPlanName": "S4-standard"
+            },
+            "floorPlanFeatures": [],
+            "id": "",
+            "communityCode": "MA039",
+            "floorPlanType": "Studio",
+            "floorPlanBathType": "1 bath",
+            "floorPlanName": "S4-standard",
+            "image": "",
+            "estimatedSize": 478,
+            "features": [],
+            "apartments": null,
+            "internalNotes": "",
+            "modifiedBy": "",
+            "isDeleted": false,
+            "sizeRange": null
+          }
+        ],
+        "floorPlanTypeCode": "0BD",
+        "value": 0,
+        "display": "Studio",
+        "displayOrder": 0
+      },
+      {
+        "availableFloorPlans": [
+          {
+            "finishPackages": [
+              {
+                "apartments": [
+                  {
+                    "apartmentCode": "MA039-MA039-001-577",
+                    "communityCode": "MA039",
+                    "subCommunityCode": null,
+                    "buildingNumber": "001",
+                    "apartmentNumber": "577",
+                    "apartmentAddress": "445 Artisan Way #577",
+                    "floorPlan": null,
+                    "pricing": {
+                      "amenitizedRent": 2730,
+                      "effectiveRent": 2730,
+                      "availableDate": "\/Date(1464393600000)\/",
+                      "showAsAvailable": true,
+                      "unavailableMessage": null,
+                      "leaseTerms": null
+                    },
+                    "hasPromotion": false,
+                    "promotionList": [],
+                    "amenityList": null,
+                    "finishPackage": null,
+                    "apartmentSize": 672,
+                    "onlineApplicationUrl": "",
+                    "unitKey": "MA039-MA039-001-577",
+                    "floor": 5
+                  },
+                  {
+                    "apartmentCode": "MA039-MA039-001-377",
+                    "communityCode": "MA039",
+                    "subCommunityCode": null,
+                    "buildingNumber": "001",
+                    "apartmentNumber": "377",
+                    "apartmentAddress": "445 Artisan Way #377",
+                    "floorPlan": null,
+                    "pricing": {
+                      "amenitizedRent": 2480,
+                      "effectiveRent": 2480,
+                      "availableDate": "\/Date(1464480000000)\/",
+                      "showAsAvailable": true,
+                      "unavailableMessage": null,
+                      "leaseTerms": null
+                    },
+                    "hasPromotion": false,
+                    "promotionList": [],
+                    "amenityList": null,
+                    "finishPackage": null,
+                    "apartmentSize": 672,
+                    "onlineApplicationUrl": "",
+                    "unitKey": "MA039-MA039-001-377",
+                    "floor": 3
+                  },
+                  {
+                    "apartmentCode": "MA039-MA039-001-553",
+                    "communityCode": "MA039",
+                    "subCommunityCode": null,
+                    "buildingNumber": "001",
+                    "apartmentNumber": "553",
+                    "apartmentAddress": "445 Artisan Way #553",
+                    "floorPlan": null,
+                    "pricing": {
+                      "amenitizedRent": 2640,
+                      "effectiveRent": 2640,
+                      "availableDate": "\/Date(1465516800000)\/",
+                      "showAsAvailable": true,
+                      "unavailableMessage": null,
+                      "leaseTerms": null
+                    },
+                    "hasPromotion": false,
+                    "promotionList": [],
+                    "amenityList": null,
+                    "finishPackage": null,
+                    "apartmentSize": 672,
+                    "onlineApplicationUrl": "",
+                    "unitKey": "MA039-MA039-001-553",
+                    "floor": 5
+                  }
+                ],
+                "finishPackageId": "",
+                "finishPackageName": "",
+                "finishPackageDescription": "",
+                "finishPackageImage": ""
+              }
+            ],
+            "floorPlanId": "5770",
+            "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A3-672SF-terr-Standard.jpg",
+            "promotionList": null,
+            "floorPlanSizeRange": {
+              "minSize": 672,
+              "maxSize": 672,
+              "floorPlanName": "A3-standard-terrace"
+            },
+            "floorPlanFeatures": [],
+            "id": "",
+            "communityCode": "MA039",
+            "floorPlanType": "1 bedroom",
+            "floorPlanBathType": "1 bath",
+            "floorPlanName": "A3-standard-terrace",
+            "image": "",
+            "estimatedSize": 672,
+            "features": [],
+            "apartments": null,
+            "internalNotes": "",
+            "modifiedBy": "",
+            "isDeleted": false,
+            "sizeRange": null
+          },
+          {
+            "finishPackages": [
+              {
+                "apartments": [
+                  {
+                    "apartmentCode": "MA039-MA039-001-237",
+                    "communityCode": "MA039",
+                    "subCommunityCode": null,
+                    "buildingNumber": "001",
+                    "apartmentNumber": "237",
+                    "apartmentAddress": "445 Artisan Way #237",
+                    "floorPlan": null,
+                    "pricing": {
+                      "amenitizedRent": 2770,
+                      "effectiveRent": 2770,
+                      "availableDate": "\/Date(1464739200000)\/",
+                      "showAsAvailable": true,
+                      "unavailableMessage": null,
+                      "leaseTerms": null
+                    },
+                    "hasPromotion": false,
+                    "promotionList": [],
+                    "amenityList": null,
+                    "finishPackage": null,
+                    "apartmentSize": 672,
+                    "onlineApplicationUrl": "",
+                    "unitKey": "MA039-MA039-001-237",
+                    "floor": 2
+                  }
+                ],
+                "finishPackageId": "",
+                "finishPackageName": "",
+                "finishPackageDescription": "",
+                "finishPackageImage": ""
+              }
+            ],
+            "floorPlanId": "9290",
+            "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A3-672SF-terr-Upgrade.jpg",
+            "promotionList": null,
+            "floorPlanSizeRange": {
+              "minSize": 672,
+              "maxSize": 672,
+              "floorPlanName": "A3-upgraded-terrace"
+            },
+            "floorPlanFeatures": [],
+            "id": "",
+            "communityCode": "MA039",
+            "floorPlanType": "1 bedroom",
+            "floorPlanBathType": "1 bath",
+            "floorPlanName": "A3-upgraded-terrace",
+            "image": "",
+            "estimatedSize": 672,
+            "features": [],
+            "apartments": null,
+            "internalNotes": "",
+            "modifiedBy": "",
+            "isDeleted": false,
+            "sizeRange": null
+          },
+          {
+            "finishPackages": [
+              {
+                "apartments": [
+                  {
+                    "apartmentCode": "MA039-MA039-001-407",
+                    "communityCode": "MA039",
+                    "subCommunityCode": null,
+                    "buildingNumber": "001",
+                    "apartmentNumber": "407",
+                    "apartmentAddress": "445 Artisan Way #407",
+                    "floorPlan": null,
+                    "pricing": {
+                      "amenitizedRent": 2900,
+                      "effectiveRent": 2900,
+                      "availableDate": "\/Date(1462924800000)\/",
+                      "showAsAvailable": true,
+                      "unavailableMessage": null,
+                      "leaseTerms": null
+                    },
+                    "hasPromotion": false,
+                    "promotionList": [],
+                    "amenityList": null,
+                    "finishPackage": null,
+                    "apartmentSize": 845,
+                    "onlineApplicationUrl": "",
+                    "unitKey": "MA039-MA039-001-407",
+                    "floor": 4
+                  }
+                ],
+                "finishPackageId": "",
+                "finishPackageName": "",
+                "finishPackageDescription": "",
+                "finishPackageImage": ""
+              }
+            ],
+            "floorPlanId": "2723",
+            "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A5-845SF-Upgraded.jpg",
+            "promotionList": null,
+            "floorPlanSizeRange": {
+              "minSize": 845,
+              "maxSize": 845,
+              "floorPlanName": "A5-upgrade"
+            },
+            "floorPlanFeatures": [],
+            "id": "",
+            "communityCode": "MA039",
+            "floorPlanType": "1 bedroom",
+            "floorPlanBathType": "1 bath",
+            "floorPlanName": "A5-upgrade",
+            "image": "",
+            "estimatedSize": 845,
+            "features": [],
+            "apartments": null,
+            "internalNotes": "",
+            "modifiedBy": "",
+            "isDeleted": false,
+            "sizeRange": null
+          }
+        ],
+        "floorPlanTypeCode": "1BD",
+        "value": 1,
+        "display": "1 bedroom",
+        "displayOrder": 1
+      },
+      {
+        "availableFloorPlans": [
+          {
+            "finishPackages": [
+              {
+                "apartments": [
+                  {
+                    "apartmentCode": "MA039-MA039-001-488",
+                    "communityCode": "MA039",
+                    "subCommunityCode": null,
+                    "buildingNumber": "001",
+                    "apartmentNumber": "488",
+                    "apartmentAddress": "445 Artisan Way #488",
+                    "floorPlan": null,
+                    "pricing": {
+                      "amenitizedRent": 3095,
+                      "effectiveRent": 3095,
+                      "availableDate": "\/Date(1463443200000)\/",
+                      "showAsAvailable": true,
+                      "unavailableMessage": null,
+                      "leaseTerms": null
+                    },
+                    "hasPromotion": false,
+                    "promotionList": [],
+                    "amenityList": null,
+                    "finishPackage": null,
+                    "apartmentSize": 779,
+                    "onlineApplicationUrl": "",
+                    "unitKey": "MA039-MA039-001-488",
+                    "floor": 4
+                  }
+                ],
+                "finishPackageId": "",
+                "finishPackageName": "",
+                "finishPackageDescription": "",
+                "finishPackageImage": ""
+              }
+            ],
+            "floorPlanId": "2725",
+            "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B1-779SF-Standard.jpg",
+            "promotionList": null,
+            "floorPlanSizeRange": {
+              "minSize": 779,
+              "maxSize": 779,
+              "floorPlanName": "B1-standard"
+            },
+            "floorPlanFeatures": [],
+            "id": "",
+            "communityCode": "MA039",
+            "floorPlanType": "2 bedrooms",
+            "floorPlanBathType": "2 baths",
+            "floorPlanName": "B1-standard",
+            "image": "",
+            "estimatedSize": 779,
+            "features": [],
+            "apartments": null,
+            "internalNotes": "",
+            "modifiedBy": "",
+            "isDeleted": false,
+            "sizeRange": null
+          },
+          {
+            "finishPackages": [
+              {
+                "apartments": [
+                  {
+                    "apartmentCode": "MA039-MA039-001-382",
+                    "communityCode": "MA039",
+                    "subCommunityCode": null,
+                    "buildingNumber": "001",
+                    "apartmentNumber": "382",
+                    "apartmentAddress": "445 Artisan Way #382",
+                    "floorPlan": null,
+                    "pricing": {
+                      "amenitizedRent": 3295,
+                      "effectiveRent": 3295,
+                      "availableDate": "\/Date(1462838400000)\/",
+                      "showAsAvailable": true,
+                      "unavailableMessage": null,
+                      "leaseTerms": null
+                    },
+                    "hasPromotion": false,
+                    "promotionList": [],
+                    "amenityList": null,
+                    "finishPackage": null,
+                    "apartmentSize": 982,
+                    "onlineApplicationUrl": "",
+                    "unitKey": "MA039-MA039-001-382",
+                    "floor": 3
+                  }
+                ],
+                "finishPackageId": "",
+                "finishPackageName": "",
+                "finishPackageDescription": "",
+                "finishPackageImage": ""
+              }
+            ],
+            "floorPlanId": "9323",
+            "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B4-985SF-Standard.jpg",
+            "promotionList": null,
+            "floorPlanSizeRange": {
+              "minSize": 982,
+              "maxSize": 982,
+              "floorPlanName": "B4-standard"
+            },
+            "floorPlanFeatures": [],
+            "id": "",
+            "communityCode": "MA039",
+            "floorPlanType": "2 bedrooms",
+            "floorPlanBathType": "2 baths",
+            "floorPlanName": "B4-standard",
+            "image": "",
+            "estimatedSize": 985,
+            "features": [],
+            "apartments": null,
+            "internalNotes": "",
+            "modifiedBy": "",
+            "isDeleted": false,
+            "sizeRange": null
+          }
+        ],
+        "floorPlanTypeCode": "2BD",
+        "value": 2,
+        "display": "2 bedrooms",
+        "displayOrder": 2
+      }
+    ],
+    "unavailableFloorPlans": [
+      {
+        "floorPlanId": "6890",
+        "floorPlanName": "S1-terrace",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-S1-403SF-Standard.jpg",
+        "floorPlanType": "0BD",
+        "floorPlanSizeRange": {
+          "minSize": 403,
+          "maxSize": 403,
+          "floorPlanName": "S1-terrace"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "2727",
+        "floorPlanName": "S3-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-S3-468SF-Standard.jpg",
+        "floorPlanType": "0BD",
+        "floorPlanSizeRange": {
+          "minSize": 468,
+          "maxSize": 468,
+          "floorPlanName": "S3-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "9258",
+        "floorPlanName": "S3-upgrade",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-S3-468SF-Upgrade.jpg",
+        "floorPlanType": "0BD",
+        "floorPlanSizeRange": {
+          "minSize": 468,
+          "maxSize": 468,
+          "floorPlanName": "S3-upgrade"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "9259",
+        "floorPlanName": "S4-upgrade",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-S4-478SF-Apt408-Upgraded.jpg",
+        "floorPlanType": "0BD",
+        "floorPlanSizeRange": {
+          "minSize": 478,
+          "maxSize": 478,
+          "floorPlanName": "S4-upgrade"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "2726",
+        "floorPlanName": "A1-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A1-533SF-Standard.jpg",
+        "floorPlanType": "1BD",
+        "floorPlanSizeRange": {
+          "minSize": 533,
+          "maxSize": 533,
+          "floorPlanName": "A1-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "9260",
+        "floorPlanName": "A1-upgrade",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A1-533SF-Upgraded.jpg",
+        "floorPlanType": "1BD",
+        "floorPlanSizeRange": {
+          "minSize": 533,
+          "maxSize": 533,
+          "floorPlanName": "A1-upgrade"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "2721",
+        "floorPlanName": "A2-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A2-646SF-Standard.jpg",
+        "floorPlanType": "1BD",
+        "floorPlanSizeRange": {
+          "minSize": 646,
+          "maxSize": 646,
+          "floorPlanName": "A2-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "2729",
+        "floorPlanName": "A3-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A3-672SF-Standard.jpg",
+        "floorPlanType": "1BD",
+        "floorPlanSizeRange": {
+          "minSize": 672,
+          "maxSize": 672,
+          "floorPlanName": "A3-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "2730",
+        "floorPlanName": "A4-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-A4-788SF-Standard.jpg",
+        "floorPlanType": "1BD",
+        "floorPlanSizeRange": {
+          "minSize": 778,
+          "maxSize": 778,
+          "floorPlanName": "A4-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "1 bath"
+      },
+      {
+        "floorPlanId": "9261",
+        "floorPlanName": "B1-upgrade",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B1-779SF-Upgraded.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 779,
+          "maxSize": 779,
+          "floorPlanName": "B1-upgrade"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "2722",
+        "floorPlanName": "B3-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B3-982SF-Standard.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 982,
+          "maxSize": 982,
+          "floorPlanName": "B3-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "5802",
+        "floorPlanName": "B3-standard-terrace",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B3-982SF-Terr-Standard.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 982,
+          "maxSize": 982,
+          "floorPlanName": "B3-standard-terrace"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "9262",
+        "floorPlanName": "B3-upgrade-terrace",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B3-982SF-Terr-Upgraded.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 982,
+          "maxSize": 982,
+          "floorPlanName": "B3-upgrade-terrace"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "2724",
+        "floorPlanName": "B4-369-standard",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B4-985SF-Apts369-451-Standard(1).jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 982,
+          "maxSize": 982,
+          "floorPlanName": "B4-369-standard"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "9263",
+        "floorPlanName": "B4-451-upgraded",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B4-985SF-Apts369-451-Upgrade.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 982,
+          "maxSize": 982,
+          "floorPlanName": "B4-451-upgraded"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "9322",
+        "floorPlanName": "B4-upgrade",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B4-985SF-Upgrade.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 982,
+          "maxSize": 982,
+          "floorPlanName": "B4-upgrade"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "2732",
+        "floorPlanName": "B5-upgraded",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B5-1246SF-Upgraded.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 1246,
+          "maxSize": 1246,
+          "floorPlanName": "B5-upgraded"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "5803",
+        "floorPlanName": "B5-upgraded-terrace",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B5-1246SF-Terr-Upgrade.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 1246,
+          "maxSize": 1246,
+          "floorPlanName": "B5-upgraded-terrace"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      },
+      {
+        "floorPlanId": "2728",
+        "floorPlanName": "B6-upgraded",
+        "floorPlanImage": "https://resource.avalonbay.com/floorplans/MA039/MA039-B6-1357SF-Upgrade.jpg",
+        "floorPlanType": "2BD",
+        "floorPlanSizeRange": {
+          "minSize": 1357,
+          "maxSize": 1357,
+          "floorPlanName": "B6-upgraded"
+        },
+        "floorPlanFeatures": [],
+        "floorPlanBathType": "2 baths"
+      }
+    ]
+  },
+  "responseStatus": null
+}
