@@ -32,7 +32,6 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
 
     private static final String CHANNEL_TITLE = "Avalon One Bedroom Apartments";
     private static final String CHANNEL_DESCRIPTION = "Feed of One Bedroom Apartments";
-    private static final String APARTMENT_DETAIL_BASE_URL = "http://www.avaloncommunities.com/massachusetts/somerville-apartments/ava-somerville/apartment/{apartmentCode}";
     public static final String MOVE_IN_DATE = "moveInDate";
 
     @Autowired
@@ -112,8 +111,10 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
     }
 
     private String createLink(Apartment apartment) {
-        return UriComponentsBuilder.fromHttpUrl(APARTMENT_DETAIL_BASE_URL)
-                .buildAndExpand(apartment.getApartmentCode())
+        return UriComponentsBuilder.fromHttpUrl(apartment.getCommunity().getBaseUrl())
+                .pathSegment("apartment")
+                .pathSegment(apartment.getApartmentCode())
+                .build()
                 .toUriString();
     }
 

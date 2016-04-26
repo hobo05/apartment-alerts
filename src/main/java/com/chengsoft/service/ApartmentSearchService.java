@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
@@ -63,7 +64,10 @@ public class ApartmentSearchService {
         try {
             response = jsonResponse.execute();
             if (!response.isSuccessful()) {
-                logger.error("Call to Avalon {} Failed! {}", community, response.errorBody().string());
+                logger.error("Call to Avalon {} Failed! Error body=[{}]", community, response.errorBody().string());
+                return ImmutableSet.of();
+            } else if (Objects.isNull(response.body())) {
+                logger.error("Call to Avalon {} Failed! Null response!", community, response.errorBody().string());
                 return ImmutableSet.of();
             }
         } catch (IOException e) {
