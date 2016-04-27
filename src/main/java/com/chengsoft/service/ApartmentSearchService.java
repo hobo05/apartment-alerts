@@ -44,6 +44,8 @@ public class ApartmentSearchService {
 
     public Set<Apartment> lookForNewApartments(LocalDate moveInDate, Community community) {
 
+        logger.info("Call Avalon apartments [community={}, moveInDate={}]", community, DateTimeFormatter.ISO_DATE.format(moveInDate));
+
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(JacksonConverterFactory.create())
                 .baseUrl("https://api.avalonbay.com/json/reply/")

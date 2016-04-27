@@ -5,6 +5,7 @@ import com.chengsoft.model.Apartment;
 import com.chengsoft.model.Community;
 import com.chengsoft.service.ApartmentSearchService;
 import com.rometools.rome.feed.rss.*;
+import org.apache.commons.lang3.text.WordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.servlet.view.feed.AbstractRssFeedView;
@@ -22,8 +23,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.toList;
 
 /**
  * Created by tcheng on 4/24/16.
@@ -31,8 +34,8 @@ import static java.util.Comparator.comparing;
 public class ApartmentRssFeedView extends AbstractRssFeedView {
 
     private static final String CHANNEL_TITLE = "Avalon One Bedroom Apartments";
-    private static final String CHANNEL_DESCRIPTION = "Feed of One Bedroom Apartments";
-    public static final String MOVE_IN_DATE = "moveInDate";
+    private static final String CHANNEL_DESCRIPTION = "Feed of one bedroom apartments";
+    public static final String MOVE_IN_DATES = "moveInDates";
 
     @Autowired
     private ApartmentSearchService apartmentSearchService;
@@ -47,15 +50,24 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
     protected Channel newFeed() {
         Channel channel = new Channel("rss_2.0");
 
-        String moveInDate = httpServletRequest.getParameter(MOVE_IN_DATE);
+        String moveInDates = httpServletRequest.getParameter(MOVE_IN_DATES);
+        String months = Stream.of(moveInDates.split(","))
+                .map(String::trim)
+                .map(LocalDate::parse)
+                .map(LocalDate::getMonth)
+                .map(Object::toString)
+                .map(WordUtils::capitalizeFully)
+                .collect(Collectors.joining(", "));
+
         String channelLink = UriComponentsBuilder.fromHttpUrl(baseUrl)
                 .path(ApartmentController.APARTMENT_FEED)
-                .queryParam(MOVE_IN_DATE, moveInDate)
+                .queryParam(MOVE_IN_DATES, moveInDates)
                 .build().toUriString();
 
         channel.setLink(channelLink);
-        channel.setTitle(CHANNEL_TITLE + " " + moveInDate);
-        channel.setDescription(CHANNEL_DESCRIPTION + " with move in date ~" + moveInDate);
+
+        channel.setTitle(CHANNEL_TITLE + " For " + months);
+        channel.setDescription(CHANNEL_DESCRIPTION + " with move in dates of around " + months);
         apartmentSearchService.getOneMostRecent().ifPresent(a ->
                 channel.setPubDate(Date.from(a.getDateFound().atStartOfDay(ZoneId.of("America/New_York")).toInstant())));
         return channel;
@@ -65,10 +77,11 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
     protected List<Item> buildFeedItems(Map<String, Object> model,
                                         HttpServletRequest httpServletRequest,
                                         HttpServletResponse httpServletResponse) throws Exception {
-        LocalDate moveInDate = (LocalDate) model.get(MOVE_IN_DATE);
+        List<LocalDate> moveInDates = (List<LocalDate>) model.get(MOVE_IN_DATES);
 
         return Observable.from(Community.values())
-                .flatMap(c -> Async.start(() -> apartmentSearchService.lookForNewApartments(moveInDate, c)))
+                .flatMap(c -> Observable.from(moveInDates)
+                        .flatMap(date -> Async.start(() -> apartmentSearchService.lookForNewApartments(date, c))))
                 .toList()
                 .toBlocking()
                 .first()
@@ -77,7 +90,8 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
                 .sorted(comparing(Apartment::getCommunity)
                         .thenComparing(a -> a.getPricing().getAvailableDate()))
                 .map(this::createItem)
-                .collect(Collectors.toList());
+                .distinct() // remove duplicates that span across different move-in dates
+                .collect(toList());
     }
 
     private Item createItem(Apartment apartment) {
