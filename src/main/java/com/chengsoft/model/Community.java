@@ -8,8 +8,7 @@ package com.chengsoft.model;
 public enum Community {
 
     SOMERVILLE("MA039", "http://www.avaloncommunities.com/massachusetts/somerville-apartments/ava-somerville"),
-    ASSEMBLY_ROW("MA038", "http://www.avaloncommunities.com/massachusetts/somerville-apartments/avalon-at-assembly-row"),
-    NORTH_POINT("MAD01", "http://www.avaloncommunities.com/massachusetts/cambridge-apartments/avalon-north-point");
+    ASSEMBLY_ROW("MA038", "http://www.avaloncommunities.com/massachusetts/somerville-apartments/avalon-at-assembly-row");
 
     private String code;
     private String baseUrl;

@@ -89,8 +89,8 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
                 .flatMap(Collection::stream)
                 .sorted(comparing(Apartment::getCommunity)
                         .thenComparing(a -> a.getPricing().getAvailableDate()))
-                .map(this::createItem)
                 .distinct() // remove duplicates that span across different move-in dates
+                .map(this::createItem)
                 .collect(toList());
     }
 
