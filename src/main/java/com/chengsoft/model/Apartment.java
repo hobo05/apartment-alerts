@@ -20,4 +20,5 @@ public class Apartment {
     private Pricing pricing;
     private LocalDate dateFound = LocalDate.now(ZoneId.of("America/New_York"));
     private Community community;
+    private Bedroom bedroom;
 }

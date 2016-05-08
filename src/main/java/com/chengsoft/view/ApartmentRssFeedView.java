@@ -33,8 +33,8 @@ import static java.util.stream.Collectors.toList;
  */
 public class ApartmentRssFeedView extends AbstractRssFeedView {
 
-    private static final String CHANNEL_TITLE = "Avalon One Bedroom Apartments";
-    private static final String CHANNEL_DESCRIPTION = "Feed of one bedroom apartments";
+    private static final String CHANNEL_TITLE = "Avalon One & Two Bedroom Apartments";
+    private static final String CHANNEL_DESCRIPTION = "Feed of one & two bedroom apartments";
     public static final String MOVE_IN_DATES = "moveInDates";
 
     @Autowired
@@ -96,8 +96,9 @@ public class ApartmentRssFeedView extends AbstractRssFeedView {
 
     private Item createItem(Apartment apartment) {
         Item item = new Item();
-        item.setTitle(String.format("%s - %s - $%d - #%d",
+        item.setTitle(String.format("%s - %s - %s - $%d - #%d",
                 apartment.getCommunity(),
+                apartment.getBedroom().getValue(),
                 apartment.getPricing().getAvailableDate().format(DateTimeFormatter.ISO_LOCAL_DATE),
                 apartment.getPricing().getEffectiveRent(),
                 apartment.getApartmentNumber()));

@@ -1,5 +1,6 @@
 package com.chengsoft.config;
 
+import com.chengsoft.service.AvalonService;
 import com.chengsoft.view.ApartmentRssFeedView;
 import com.jayway.jsonpath.Option;
 import com.jayway.jsonpath.spi.json.JacksonJsonProvider;
@@ -12,6 +13,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.web.context.WebApplicationContext;
+import retrofit2.Retrofit;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import javax.annotation.PostConstruct;
 import java.util.EnumSet;
@@ -52,6 +55,16 @@ public class AppConfig {
     @Scope(scopeName = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
     public ApartmentRssFeedView apartmentRssFeedView() {
         return new ApartmentRssFeedView();
+    }
+
+    @Bean
+    public AvalonService avalonService() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(JacksonConverterFactory.create())
+                .baseUrl("https://api.avalonbay.com/json/reply/")
+                .build();
+
+        return retrofit.create(AvalonService.class);
     }
 
 }

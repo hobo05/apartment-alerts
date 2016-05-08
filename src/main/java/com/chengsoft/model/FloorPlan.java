@@ -1,6 +1,7 @@
 package com.chengsoft.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
@@ -13,4 +14,8 @@ public class FloorPlan {
     private String floorPlanName;
     private Integer estimatedSize;
     private String floorPlanImage;
+
+    @JsonProperty("floorPlanType")
+    private Bedroom bedroom;
+
 }

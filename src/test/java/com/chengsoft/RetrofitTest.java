@@ -1,22 +1,26 @@
 package com.chengsoft;
 
 import com.chengsoft.model.Apartment;
-import com.chengsoft.model.FloorPlan;
+import com.chengsoft.model.Community;
+import com.chengsoft.service.ApartmentSearchService;
 import com.chengsoft.service.AvalonService;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 import com.jayway.jsonpath.Configuration;
-import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.Option;
-import com.jayway.jsonpath.TypeRef;
 import com.jayway.jsonpath.spi.json.JacksonJsonProvider;
 import com.jayway.jsonpath.spi.json.JsonProvider;
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
 import com.jayway.jsonpath.spi.mapper.MappingProvider;
 import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import retrofit2.Call;
@@ -31,7 +35,12 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.EnumSet;
+import java.util.Set;
+
+import static org.mockito.Mockito.*;
 
 /**
  * Created by tcheng on 4/23/16.
@@ -40,6 +49,12 @@ import java.util.*;
 public class RetrofitTest {
 
     final static Logger logger = LoggerFactory.getLogger(RetrofitTest.class);
+
+    @Rule public MockitoRule mockito = MockitoJUnit.rule();
+
+    @InjectMocks ApartmentSearchService apartmentSearchService;
+    @Mock AvalonService avalonService;
+    @Mock Call<JsonNode> retrofitCall;
 
     @Test
     public void  testDates() {
@@ -115,39 +130,16 @@ public class RetrofitTest {
         File jsonFile = new File("src/test/resources/available.json");
 //        File jsonFile = new File("src/test/resources/unavailable.json");
 
-        String ONE_BEDROOM_PATH = "$.results.availableFloorPlanTypes[?(@.floorPlanTypeCode == '1BD')].availableFloorPlans";
-        String ALL = "[*]";
-        String APARTMENTS_FORMAT = "..apartments";
+        JsonNode jsonNode = mapper.readValue(jsonFile, JsonNode.class);
+        System.out.println(jsonNode);
 
-        List<FloorPlan> oneBedroomFloorPlans = JsonPath
-                .parse(jsonFile)
-                .read(ONE_BEDROOM_PATH + ALL,
-                        new TypeRef<List<FloorPlan>>() {});
+        Response<JsonNode> retrofitResponse = Response.success(jsonNode);
+        when(retrofitCall.execute()).thenReturn(retrofitResponse);
+        when(avalonService.search(anyString(), anyString(), anyInt(), anyInt())).thenReturn(retrofitCall);
 
-        if (oneBedroomFloorPlans.isEmpty()) {
-            logger.error("No floor plans available");
-            return;
-        }
+        Set<Apartment> apartments = apartmentSearchService.lookForNewApartments(LocalDate.of(2016, 06, 1), Community.SOMERVILLE);
+        logger.info("Apartments={}", apartments);
 
-        logger.info("{} One bedroom floor plans available", oneBedroomFloorPlans.size());
-
-//        List<Apartment> apartments = JsonPath
-//                .parse(jsonFile)
-//                .read(ONE_BEDROOM_PATH+String.format(APARTMENTS_FORMAT, 5770)+ALL,
-//                        new TypeRef<List<Apartment>>() {});
-
-        List<Apartment> apartments = JsonPath
-                .parse(jsonFile)
-                .read(ONE_BEDROOM_PATH+APARTMENTS_FORMAT+ALL,
-                        new TypeRef<List<Apartment>>() {});
-
-        System.out.println("test");
-//        Optional<Map<String, Object>> oneBedRoomPlans = floorPlans.stream()
-//                .filter(fp -> fp.getOrDefault("floorPlanTypeCode", "").equals("1BD"))
-//                .findFirst();
-//        Map<String, Object> onebd = oneBedRoomPlans.get();
-//        logger.info(onebd.toString());
-        //floorPlanTypeCode
     }
 
     @Test

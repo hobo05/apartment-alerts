@@ -1,19 +1,18 @@
 package com.chengsoft.service;
 
 import com.chengsoft.model.Apartment;
+import com.chengsoft.model.Bedroom;
 import com.chengsoft.model.Community;
-import com.chengsoft.model.FloorPlan;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.collect.*;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.TypeRef;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
 import java.time.*;
@@ -22,6 +21,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
@@ -38,26 +39,29 @@ public class ApartmentSearchService {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
 
     private static final String ONE_BEDROOM_PATH = "$.results.availableFloorPlanTypes[?(@.floorPlanTypeCode == '1BD')].availableFloorPlans";
+    private static final String TWO_BEDROOM_PATH = "$.results.availableFloorPlanTypes[?(@.floorPlanTypeCode == '2BD')].availableFloorPlans";
     private static final String ALL = "[*]";
     private static final String APARTMENTS_FORMAT = "..apartments";
     private static Multimap<String, Apartment> cachedApartmentsMap = Multimaps.synchronizedMultimap(ArrayListMultimap.create());
+
+    private AvalonService avalonService;
+
+    @Autowired
+    public ApartmentSearchService(AvalonService avalonService) {
+        this.avalonService = avalonService;
+    }
 
     public Set<Apartment> lookForNewApartments(LocalDate moveInDate, Community community) {
 
         logger.info("Call Avalon apartments [community={}, moveInDate={}]", community, DateTimeFormatter.ISO_DATE.format(moveInDate));
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .addConverterFactory(JacksonConverterFactory.create())
-                .baseUrl("https://api.avalonbay.com/json/reply/")
-                .build();
 
         LocalDateTime localDateTime = LocalDateTime.of(moveInDate, LocalTime.MIN);
         ZonedDateTime zdt = ZonedDateTime.of(localDateTime, ZoneId.of("America/New_York"));
         ZonedDateTime utc = zdt.withZoneSameInstant(ZoneId.of("UTC"));
 
-        AvalonService service = retrofit.create(AvalonService.class);
 
-        Call<JsonNode> jsonResponse = service.search(community.getCode(),
+        Call<JsonNode> jsonResponse = avalonService.search(community.getCode(),
                 FORMATTER.format(utc),
                 2000,
                 3500);
@@ -77,33 +81,47 @@ public class ApartmentSearchService {
         }
 
         String json = response.body().toString();
-        List<FloorPlan> oneBedroomFloorPlans = JsonPath
-                .parse(json)
-                .read(ONE_BEDROOM_PATH + ALL,
-                        new TypeRef<List<FloorPlan>>() {
-                        });
 
-        String formattedDate = DateTimeFormatter.ISO_DATE.format(moveInDate);
+        return Stream.of(Bedroom.values())
+                .flatMap(b -> getApartmentsByBedroom(b, community, localDateTime, json).stream())
+                .collect(Collectors.toSet());
+    }
 
-        if (oneBedroomFloorPlans.isEmpty()) {
-            logger.error("{} - No floor plans available for {}", community, formattedDate);
-            return ImmutableSet.of();
+    private ImmutableSet<Apartment> getApartmentsByBedroom(Bedroom bedroom, Community community, LocalDateTime localDateTime, String json) {
+
+        String path = "";
+        switch (bedroom) {
+            case ONE:
+                path = ONE_BEDROOM_PATH;
+                break;
+            case TWO:
+                path = TWO_BEDROOM_PATH;
+                break;
         }
-
-        logger.info("{} - {} One bedroom floor plans available for {}", community, oneBedroomFloorPlans.size(), formattedDate);
 
         Set<Apartment> foundApartments = JsonPath
                 .parse(json)
-                .read(ONE_BEDROOM_PATH + APARTMENTS_FORMAT + ALL,
+                .read(path + APARTMENTS_FORMAT + ALL,
                         new TypeRef<List<Apartment>>() {
                         })
                 .stream()
                 .map(a -> a.toBuilder()
                         .community(community)
+                        .bedroom(bedroom)
                         .build())
                 .collect(toSet());
 
-        String mapKey = String.format("%s_%s", community.toString(), DateTimeFormatter.ISO_DATE.format(localDateTime));
+        String formattedDate = DateTimeFormatter.ISO_DATE.format(localDateTime);
+
+        // Return immediately if no floor plans found
+        if (foundApartments.isEmpty()) {
+            logger.error("{} - No {} floor plans available for {}", community, bedroom.getValue(), formattedDate);
+            return ImmutableSet.of();
+        }
+
+        logger.info("{} - {} {} floor plans available for {}", community, foundApartments.size(), bedroom.getValue(), formattedDate);
+
+        String mapKey = String.format("%s_%s_%s", community.toString(), bedroom.toString(), DateTimeFormatter.ISO_DATE.format(localDateTime));
         logger.info("API Call Results [key={}, apartments={}]", mapKey, foundApartments.stream()
                 .map(Apartment::getApartmentNumber)
                 .collect(toList()));
@@ -127,7 +145,6 @@ public class ApartmentSearchService {
         logger.info("Returned Apartments [key={}, apartments={}]", mapKey, difference.stream()
                 .map(Apartment::getApartmentNumber)
                 .collect(toList()));
-
         return returnedApartments;
     }
 
